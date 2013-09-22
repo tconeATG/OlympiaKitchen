@@ -22,9 +22,10 @@
 	          wall.fitWidth();
 	         });
 		});
+		var cardio_pressed = false;
 		$("#cardio").click(function() {
-			visible = !visible;
-            if (visible)
+			cardio_pressed = !cardio_pressed;
+            if (cardio_pressed)
             {
               $('#cardio').attr('src', '/assets/cardio_pressed.png');
             }
@@ -33,9 +34,10 @@
               $('#cardio').attr('src', '/assets/cardio_unpressed.png');
             }
 		});
+		var strength_pressed = false;
 		$("#strength").click(function() {
-			visible = !visible;
-            if (visible)
+			strength_pressed = !strength_pressed;
+            if (strength_pressed)
             {
               $('#strength').attr('src', '/assets/strength_pressed.png');
             }
@@ -44,9 +46,10 @@
               $('#strength').attr('src', '/assets/strength_unpressed.png');
             }
 		});
+		strength_cardio_pressed = false;
 		$("#strength_cardio").click(function() {
-			visible = !visible;
-            if (visible)
+			strength_cardio_pressed = !strength_cardio_pressed;
+            if (strength_cardio_pressed)
             {
               $('#strength_cardio').attr('src', '/assets/strength_cardio_pressed.png');
             }
@@ -55,9 +58,10 @@
               $('#strength_cardio').attr('src', '/assets/strength_cardio_unpressed.png');
             }
 		});
+		low_pressed = false;
 		$("#low").click(function() {
-			visible = !visible;
-            if (visible)
+			low_pressed = !low_pressed;
+            if (low_pressed)
             {
               $('#low').attr('src', '/assets/low_pressed.png');
             }
@@ -66,9 +70,10 @@
               $('#low').attr('src', '/assets/low_unpressed.png');
             }
 		});
+		low_pressed = false;
 		$("#medium").click(function() {
-			visible = !visible;
-            if (visible)
+			low_pressed = !low_pressed;
+            if (low_pressed)
             {
               $('#medium').attr('src', '/assets/medium_pressed.png');
             }
@@ -77,9 +82,10 @@
               $('#medium').attr('src', '/assets/medium_unpressed.png');
             }
 		});
+		high_pressed = false;
 		$("#high").click(function() {
-			visible = !visible;
-            if (visible)
+			high_pressed = !high_pressed;
+            if (high_pressed)
             {
               $('#high').attr('src', '/assets/high_pressed.png');
             }

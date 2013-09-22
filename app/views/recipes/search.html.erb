@@ -1,7 +1,7 @@
 <% @recipes.shuffle.each do | recipe | %>
 	<div class="recipe-box">
 		<div>
-			<%=image_tag("#{recipe.id}.jpg",:size => "200x100") %>
+			<%=link_to image_tag("#{recipe.id}.jpg", :size => "200x100"), url_for(recipe), :target => "_blank"  %>
 			<p><%= recipe.name %></p>
 			<hr></hr>
 			Food love: <% if rand(2) == 1 %><%=image_tag("five_star_rating.png", :width=>'80px') %><% else %> <%=image_tag("four_star_rating.png", :width=>'80px') %> <% end %>
