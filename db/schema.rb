@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318170758) do
+ActiveRecord::Schema.define(:version => 20130921205134) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -21,6 +21,33 @@ ActiveRecord::Schema.define(:version => 20120318170758) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "recipe_tags", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "recipe_workout_levels", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "workout_level_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "recipes", :force => true do |t|
+    t.string   "name"
+    t.text     "recipe"
+    t.text     "ingredients"
+    t.integer  "time_til_grub"
+    t.integer  "skill"
+    t.integer  "rank"
+    t.string   "image"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "description"
+  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
@@ -33,17 +60,41 @@ ActiveRecord::Schema.define(:version => 20120318170758) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_tags", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",                                          :default => false
+    t.decimal  "weight",          :precision => 10, :scale => 0
+    t.decimal  "height",          :precision => 10, :scale => 0
+    t.string   "gender"
+    t.integer  "fitness_level"
+    t.string   "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "workout_levels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

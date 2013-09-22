@@ -8,7 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.5'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
+  gem 'mysql2'
   gem 'rspec-rails', '2.8.1'
   gem 'annotate', '~> 2.4.1.beta'
 end
@@ -21,7 +21,7 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails', '2.0.1'
 
 group :test do
   gem 'capybara', '1.1.2'

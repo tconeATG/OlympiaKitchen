@@ -1,22 +1,45 @@
 <% provide(:title, 'Home') %>
 <% if signed_in? %>
-  <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    <div class="span8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
-    </div>
-  </div>  
+<div class="container">
+  <div class="span3">
+  	<div id="recipe-search">
+	  	<section>
+	  		<h2>Choose Workout</h2>	
+	  		<div>
+	  		  <%= image_tag("cardio_unpressed.png", :width => "63",:id => "cardio") %>
+	  		  <%= image_tag("strength_unpressed.png", :width => "63", :id => "strength") %>
+	  		  <%= image_tag("strength_cardio_unpressed.png", :width => "63", :id=> "strength_cardio") %>
+			</div>	
+		</section>
+	  	<section>
+	  		<h2>Intensity</h2>
+	  		<div>
+	  		  <%= image_tag("low_unpressed.png", :width => "63", :id=>"low") %>
+	  		  <%= image_tag("medium_unpressed.png", :width => "63", :id=>"medium") %>
+	  		  <%= image_tag("high_unpressed.png", :width => "63", :id=>"high") %>
+			</div>
+		</section>	
+		<section>
+	  		<h2>Time in Kitchen</h2>
+		  	<%=select_tag :cook_time, options_for_select((5..300).step(5).to_a.map{|s| ["#{s} mins", s]})%>
+		</section>
+		<section>
+	  		<h2>I'm Craving</h2>
+		  	<%= text_field_tag :ingredients, :placeholder => "Optional Ingredients" %> 
+		</section>
+		<section>
+			<button id='fuel' class='btn btn-primary btn-large'>Fuel Me!</button>
+		</section>
+  	</div>
+  </div>
+  <div class="span8">
+  	<div id="results">
+  		<div class='body-ready'>
+  			<%= image_tag("body_is_ready.png") %>
+  		</div>
+  	</div>
+  </div>
+</div>
 <% else %>
   <div class="center hero-unit">
     <h1>Welcome to the Sample App</h1>

@@ -8,7 +8,19 @@
       </h1>
     </section>
     <section>
-      <%= render 'shared/stats' %>
+      <ul>
+      		<li>Weight: <%= @user.weight %>lbs</li>
+      		<li>Height: <%= @user.height %>inches</li>
+      		<li>Gender: <%= @user.gender %></li>
+      		<li>Fitness Level (out of 10): <%= @user.fitness_level %></li>
+      </ul>
+      <p>Dietary Preferences</p>
+      <ul>
+		<% @user.tags.each do | tag | %>
+			<li><%= tag.name %> </li>
+		<% end %>
+	  </ul>
+      	
     </section>
   </aside>
   <div class="span8">

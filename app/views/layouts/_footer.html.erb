@@ -1,13 +1,92 @@
 <footer class="footer">
   <small>
-    <a href="http://railstutorial.org/">Rails Tutorial</a>
-    by Michael Hartl
+  Olympian Kitchen
   </small>
   <nav>
     <ul>
       <li><%= link_to "About",   about_path %></li>
       <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
+      <li><a href="#">News</a></li>
     </ul>
   </nav>
 </footer>
+
+<script type="text/javascript">
+	var visible = false;
+	$(document).ready( function() {
+		$('.dropdown-toggle').dropdown();
+		$("#fuel").click(function() {
+			$("#results").load("/search","test=test");
+		     $(function() {
+	          var wall = new freewall("#results");
+	          wall.fitWidth();
+	         });
+		});
+		$("#cardio").click(function() {
+			visible = !visible;
+            if (visible)
+            {
+              $('#cardio').attr('src', '/assets/cardio_pressed.png');
+            }
+            else
+            {
+              $('#cardio').attr('src', '/assets/cardio_unpressed.png');
+            }
+		});
+		$("#strength").click(function() {
+			visible = !visible;
+            if (visible)
+            {
+              $('#strength').attr('src', '/assets/strength_pressed.png');
+            }
+            else
+            {
+              $('#strength').attr('src', '/assets/strength_unpressed.png');
+            }
+		});
+		$("#strength_cardio").click(function() {
+			visible = !visible;
+            if (visible)
+            {
+              $('#strength_cardio').attr('src', '/assets/strength_cardio_pressed.png');
+            }
+            else
+            {
+              $('#strength_cardio').attr('src', '/assets/strength_cardio_unpressed.png');
+            }
+		});
+		$("#low").click(function() {
+			visible = !visible;
+            if (visible)
+            {
+              $('#low').attr('src', '/assets/low_pressed.png');
+            }
+            else
+            {
+              $('#low').attr('src', '/assets/low_unpressed.png');
+            }
+		});
+		$("#medium").click(function() {
+			visible = !visible;
+            if (visible)
+            {
+              $('#medium').attr('src', '/assets/medium_pressed.png');
+            }
+            else
+            {
+              $('#medium').attr('src', '/assets/medium_unpressed.png');
+            }
+		});
+		$("#high").click(function() {
+			visible = !visible;
+            if (visible)
+            {
+              $('#high').attr('src', '/assets/high_pressed.png');
+            }
+            else
+            {
+              $('#high').attr('src', '/assets/high_unpressed.png');
+            }
+		});
+	});
+</script>

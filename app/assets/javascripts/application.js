@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require blocksit.min
+//= require freewall
 //= require_tree .

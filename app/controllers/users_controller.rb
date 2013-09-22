@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the Olympian Kitchen!"
       redirect_to @user
     else
       render 'new'
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @cook_times = [5..300]
   end
 
   
@@ -45,14 +46,26 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @tags = Tag.all
   end
 
   def update
     if @user.update_attributes(params[:user])
+      if params[:tags]
+          params[:tags].each do | tag |
+          @usertag = UserTag.new
+          @usertag.user_id = @user.id
+          @usertag.tag_id = tag
+          if UserTag.find_all_by_user_id_and_tag_id(@user.id, tag).length == 0
+             @usertag.save
+          end
+        end
+      end      
       flash[:success] = "Profile updated"
       sign_in @user
       redirect_to @user
     else
+      @tags = Tag.all
       render 'edit'
     end
   end

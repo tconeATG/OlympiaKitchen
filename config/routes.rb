@@ -1,4 +1,10 @@
 SampleApp::Application.routes.draw do
+  resources :workout_levels
+
+  resources :recipes
+
+  resources :tags
+
   resources :users do
     member do
       get :following, :followers
@@ -19,5 +25,5 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-
+  match '/search', to: 'recipes#search'
 end

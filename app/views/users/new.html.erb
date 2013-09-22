@@ -1,22 +1,13 @@
 <%= provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<h1>Welcome to Olympian Kitchen!</h2>
+<div class='container'>
+		<div class='span5 hero-unit'>
+			<p>Bacon ipsum dolor sit amet jowl sirloin meatball leberkas sausage ground round turducken ham spare ribs bresaola short loin pig. Chicken turkey pork loin, sirloin turducken hamburger prosciutto doner ground round t-bone pastrami chuck boudin. Short loin beef ribs t-bone, corned beef meatloaf pig drumstick filet mignon tail bresaola. Pork loin tri-tip ribeye prosciutto t-bone chuck pastrami sausage strip steak ball tip. Turducken filet mignon flank tongue frankfurter spare ribs. Hamburger pork chop bresaola meatloaf shoulder leberkas jowl ham hock chicken tri-tip. Chicken turducken pork belly bresaola corned beef, tail bacon strip steak tri-tip.</p>
+		</div>
+		<div class='span3'>	
+			<h2>Get Some Grub!</h2>
+			<%= render 'signup_form' %>
+		</div>
+</div>
 
 
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create my account", :class => "btn btn-large btn-primary" %>
-<% end %>

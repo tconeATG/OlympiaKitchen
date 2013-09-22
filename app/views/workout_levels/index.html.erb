@@ -1,0 +1,23 @@
+<h1>Listing workout_levels</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @workout_levels.each do |workout_level| %>
+  <tr>
+    <td><%= workout_level.name %></td>
+    <td><%= link_to 'Show', workout_level %></td>
+    <td><%= link_to 'Edit', edit_workout_level_path(workout_level) %></td>
+    <td><%= link_to 'Destroy', workout_level, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Workout level', new_workout_level_path %>
